@@ -1,10 +1,10 @@
 package com.test;
 /**
- *Å®Éú
+ *å¥³ç¥
  */
 public class Godness {
 
-	private String name;//Ãû×Ö
+	private String name;//åå­—
 
 	public Godness() {
 	}

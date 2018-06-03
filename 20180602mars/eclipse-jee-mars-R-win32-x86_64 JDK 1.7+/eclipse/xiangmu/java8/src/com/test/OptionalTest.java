@@ -3,17 +3,16 @@ package com.test;
 import java.util.Optional;
 
 import org.junit.Test;
-
 /*
- * Ò»¡¢Optional ÈİÆ÷Àà£ºÓÃÓÚ¾¡Á¿±ÜÃâ¿ÕÖ¸ÕëÒì³£
- * 	Optional.of(T t) : ´´½¨Ò»¸ö Optional ÊµÀı
- * 	Optional.empty() : ´´½¨Ò»¸ö¿ÕµÄ Optional ÊµÀı
- * 	Optional.ofNullable(T t):Èô t ²»Îª null,´´½¨ Optional ÊµÀı,·ñÔò´´½¨¿ÕÊµÀı
- * 	isPresent() : ÅĞ¶ÏÊÇ·ñ°üº¬Öµ
- * 	orElse(T t) :  Èç¹ûµ÷ÓÃ¶ÔÏó°üº¬Öµ£¬·µ»Ø¸ÃÖµ£¬·ñÔò·µ»Øt
- * 	orElseGet(Supplier s) :Èç¹ûµ÷ÓÃ¶ÔÏó°üº¬Öµ£¬·µ»Ø¸ÃÖµ£¬·ñÔò·µ»Ø s »ñÈ¡µÄÖµ
- * 	map(Function f): Èç¹ûÓĞÖµ¶ÔÆä´¦Àí£¬²¢·µ»Ø´¦ÀíºóµÄOptional£¬·ñÔò·µ»Ø Optional.empty()
- * 	flatMap(Function mapper):Óë map ÀàËÆ£¬ÒªÇó·µ»ØÖµ±ØĞëÊÇOptional
+ * ä¸€ã€Optional å®¹å™¨ç±»ï¼šç”¨äºå°½é‡é¿å…ç©ºæŒ‡é’ˆå¼‚å¸¸
+ * 	Optional.of(T t) : åˆ›å»ºä¸€ä¸ª Optional å®ä¾‹
+ * 	Optional.empty() : åˆ›å»ºä¸€ä¸ªç©ºçš„ Optional å®ä¾‹
+ * 	Optional.ofNullable(T t):è‹¥ t ä¸ä¸º null,åˆ›å»º Optional å®ä¾‹,å¦åˆ™åˆ›å»ºç©ºå®ä¾‹
+ * 	isPresent() : åˆ¤æ–­æ˜¯å¦åŒ…å«å€¼
+ * 	orElse(T t) :  å¦‚æœè°ƒç”¨å¯¹è±¡åŒ…å«å€¼ï¼Œè¿”å›è¯¥å€¼ï¼Œå¦åˆ™è¿”å›t
+ * 	orElseGet(Supplier s) :å¦‚æœè°ƒç”¨å¯¹è±¡åŒ…å«å€¼ï¼Œè¿”å›è¯¥å€¼ï¼Œå¦åˆ™è¿”å› s è·å–çš„å€¼
+ * 	map(Function f): å¦‚æœæœ‰å€¼å¯¹å…¶å¤„ç†ï¼Œå¹¶è¿”å›å¤„ç†åçš„Optionalï¼Œå¦åˆ™è¿”å› Optional.empty()
+ * 	flatMap(Function mapper):ä¸ map ç±»ä¼¼ï¼Œè¦æ±‚è¿”å›å€¼å¿…é¡»æ˜¯Optional
  */
 public class OptionalTest {
 
@@ -22,7 +21,7 @@ public class OptionalTest {
 		Optional<Employee> of = Optional.of(new Employee());
 		System.out.println(of.get());
 		// Employee [id=0, name=null, age=0, salary=0.0, status=null]
-		// Optional<Object> of2 = Optional.of(null);//NullPointerException ±¨´í
+		// Optional<Object> of2 = Optional.of(null);//NullPointerException æŠ¥é”™
 	}
 
 	@Test
@@ -30,11 +29,11 @@ public class OptionalTest {
 		Optional<Employee> ofNullable = Optional.ofNullable(new Employee());
 		System.out.println(ofNullable.get());
 		// Employee [id=0, name=null, age=0, salary=0.0, status=null]
-		Optional<Employee> ofNullable1 = Optional.ofNullable(null);// ²»»á±¨´í
+		Optional<Employee> ofNullable1 = Optional.ofNullable(null);// ä¸ä¼šæŠ¥é”™
 		// System.out.println(ofNullable1.get());
-		// java.util.NoSuchElementException: No value present »á±¨´í
+		// java.util.NoSuchElementException: No value present ä¼šæŠ¥é”™
 	}
-	// ÉÏ±ßµÄÁ½¸öµÄÇø±ğÊÇ£¬ÊÇ·ñ¿ÉÒÔÖ±½Ó´«Èënull¡£of´«ÈëÊ±Ö±½Ó±¨´í¡£
+	// ä¸Šè¾¹çš„ä¸¤ä¸ªçš„åŒºåˆ«æ˜¯ï¼Œæ˜¯å¦å¯ä»¥ç›´æ¥ä¼ å…¥nullã€‚ofä¼ å…¥æ—¶ç›´æ¥æŠ¥é”™ã€‚
 	
 	@Test
 	public void test3(){
@@ -44,10 +43,10 @@ public class OptionalTest {
 			System.out.println("1111");
 			System.out.println(ofNullable.get());
 		}
-		//Èç¹ûÊÇnull£¬Ôò²»»áÖ´ĞĞifÅĞ¶ÏµÄÒÀ¾İ¡£Èç¹ûÊÇnew Employee()Ôò»áÖ´ĞĞÏÂ±ßµÄ·½·¨¡£
+		//å¦‚æœæ˜¯nullï¼Œåˆ™ä¸ä¼šæ‰§è¡Œifåˆ¤æ–­çš„ä¾æ®ã€‚å¦‚æœæ˜¯new Employee()åˆ™ä¼šæ‰§è¡Œä¸‹è¾¹çš„æ–¹æ³•ã€‚
 		Object obj = ofNullable.orElse(new Employee("zhangsan"));
 		System.out.println(obj);
-		//orElse·½·¨±íÃ÷µÄÊÇ£¬Èç¹ûÊÇnull,Ôò»áÖ´ĞĞÕâ¸ö·½·¨
+		//orElseæ–¹æ³•è¡¨æ˜çš„æ˜¯ï¼Œå¦‚æœæ˜¯null,åˆ™ä¼šæ‰§è¡Œè¿™ä¸ªæ–¹æ³•
 		//Employee [id=0, name=zhangsan, age=0, salary=0.0, status=null]
 		
 	}
@@ -60,31 +59,31 @@ public class OptionalTest {
 			System.out.println("1111");
 			System.out.println(ofNullable.get());
 		}
-		//Èç¹ûÊÇnull£¬Ôò²»»áÖ´ĞĞifÅĞ¶ÏµÄÒÀ¾İ¡£Èç¹ûÊÇnew Employee()Ôò»áÖ´ĞĞÏÂ±ßµÄ·½·¨¡£
+		//å¦‚æœæ˜¯nullï¼Œåˆ™ä¸ä¼šæ‰§è¡Œifåˆ¤æ–­çš„ä¾æ®ã€‚å¦‚æœæ˜¯new Employee()åˆ™ä¼šæ‰§è¡Œä¸‹è¾¹çš„æ–¹æ³•ã€‚
 		Object obj = ofNullable.orElseGet(() ->new Employee("zhangsan  orElseGet"));
 		System.out.println(obj);
-		//orElse·½·¨±íÃ÷µÄÊÇ£¬Èç¹ûÊÇnull,Ôò»áÖ´ĞĞÕâ¸ö·½·¨
+		//orElseæ–¹æ³•è¡¨æ˜çš„æ˜¯ï¼Œå¦‚æœæ˜¯null,åˆ™ä¼šæ‰§è¡Œè¿™ä¸ªæ–¹æ³•
 		//Employee [id=0, name=zhangsan  orElseGet, age=0, salary=0.0, status=null]
 		
 	}
-	//orElse»òÕßorElseGetµÄ×÷ÓÃÊÇÈç¹ûÉÏ±ßµÄÖµ£¬Îª¿ÕµÄ»°£¬Ôò»áÖ´ĞĞÕâ¸ö·½·¨
+	//orElseæˆ–è€…orElseGetçš„ä½œç”¨æ˜¯å¦‚æœä¸Šè¾¹çš„å€¼ï¼Œä¸ºç©ºçš„è¯ï¼Œåˆ™ä¼šæ‰§è¡Œè¿™ä¸ªæ–¹æ³•
 	
 	/**
-	 * map·½·¨µÄÊ¹ÓÃ
+	 * mapæ–¹æ³•çš„ä½¿ç”¨
 	 */
 	@Test
 	public void test5(){
-		Optional<Employee> op = Optional.of(new Employee(101, "ÕÅÈı", 18, 9999.99));
+		Optional<Employee> op = Optional.of(new Employee(101, "å¼ ä¸‰", 18, 9999.99));
 		Optional<String> map = op.map((e) -> e.getName());
-		System.out.println(map.get());//ÕÅÈı
+		System.out.println(map.get());//å¼ ä¸‰
 	}
 	
 	/**
-	 * flatMap·½·¨µÄÊ¹ÓÃ  ºÍmapµÄ·½·¨µÄÇø±ğÊÇ´«Èë²ÎÊıµÄÖµ
+	 * flatMapæ–¹æ³•çš„ä½¿ç”¨  å’Œmapçš„æ–¹æ³•çš„åŒºåˆ«æ˜¯ä¼ å…¥å‚æ•°çš„å€¼
 	 */
 	@Test
 	public void test6(){
-		Optional<Employee> op = Optional.of(new Employee(101, "ÕÅÈı", 18, 9999.99));
+		Optional<Employee> op = Optional.of(new Employee(101, "å¼ ä¸‰", 18, 9999.99));
 		Optional<String> flatMap = op.flatMap((e) -> Optional.ofNullable(e.getName()));
 	    System.out.println(flatMap.get());
 	}
@@ -97,7 +96,7 @@ public class OptionalTest {
 		String godName = getGodName(Optional.ofNullable(null));
 		System.out.println(godName);
 	}
-	//ĞèÇó£º»ñÈ¡Ò»¸öÄĞÈËĞÄÖĞÅ®ÉñµÄÃû×Ö
+	//éœ€æ±‚ï¼šè·å–ä¸€ä¸ªç”·äººå¿ƒä¸­å¥³ç¥çš„åå­—
 	public String getGodnessName(Man man){
 		if(man != null){
 			Godness g = man.getGod();
@@ -107,18 +106,18 @@ public class OptionalTest {
 			}
 		}
 		
-		return "²ÔÀÏÊ¦";
+		return "è‹è€å¸ˆ";
 	}
 	
 	/**
-	 * ĞèÒª´«ÈëµÄÖµĞèÒªÊÇOptional
+	 * éœ€è¦ä¼ å…¥çš„å€¼éœ€è¦æ˜¯Optional
 	 * @param man
 	 * @return
 	 */
-	public String getGodName(Optional<NewMan> man){//ÅĞ¶Ï´«ÈëµÄÖµ£¬Èç¹ûÎª¿Õ£¬¿ÉÒÔÖ´ĞĞÏÂ±ßµÄ´úÂë
-		return man.orElse(new NewMan())//Èç¹ûÎª¿Õ£¬Ôò´´½¨Ò»¸ö¶ÔÏó
-		.getGodness()//µÃµ½God¶ÔÏó
-		.orElse(new Godness("²ÔÀÏÊ¦"))//»òÕß´´½¨Ò»¸ö¶ÔÏó,²¢ÇÒÌá¹©Ò»¸öÄ¬ÈÏµÄÖµ
+	public String getGodName(Optional<NewMan> man){//åˆ¤æ–­ä¼ å…¥çš„å€¼ï¼Œå¦‚æœä¸ºç©ºï¼Œå¯ä»¥æ‰§è¡Œä¸‹è¾¹çš„ä»£ç 
+		return man.orElse(new NewMan())//å¦‚æœä¸ºç©ºï¼Œåˆ™åˆ›å»ºä¸€ä¸ªå¯¹è±¡
+		.getGodness()//å¾—åˆ°Godå¯¹è±¡
+		.orElse(new Godness("è‹è€å¸ˆ"))//æˆ–è€…åˆ›å»ºä¸€ä¸ªå¯¹è±¡,å¹¶ä¸”æä¾›ä¸€ä¸ªé»˜è®¤çš„å€¼
 		.getName();
 	}
 }

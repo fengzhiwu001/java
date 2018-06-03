@@ -2,7 +2,7 @@ package com.test;
 
 import java.util.Optional;
 
-//×¢Òâ£ºOptional ²»ÄÜ±»ĞòÁĞ»¯
+//æä¾›å®šä¹‰çš„æ–°çš„åç§°
 public class NewMan {
 
 	private Optional<Godness> godness = Optional.empty();

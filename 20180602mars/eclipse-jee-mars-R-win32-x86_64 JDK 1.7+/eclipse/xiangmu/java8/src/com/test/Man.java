@@ -1,10 +1,10 @@
 package com.test;
 /**
- * ÀÏÄĞÈË  
+ * è€ç”·äºº
  */
 public class Man {
 
-	private Godness god;//Å®ÉúÊôĞÔ
+	private Godness god;//å¥³ç¥
 
 	public Man() {
 	}
